@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import PropTypes from "prop-types";
-import Context from "../../context";
+import Context from "../../../Context/context";
 
 const styles ={
     li:{
@@ -23,8 +23,8 @@ const styles ={
 
 }
 
-function  TodoItem({todo,index,onChange}){
-    const {removeTodo}= useContext(Context)
+function  TodoItem({todo,index,onChange}:{todo:any,index:any,onChange:any}){
+    const {removeTodo}: any = useContext(Context)
     const  classes = []
     if(todo.completed){
         classes.push('done')

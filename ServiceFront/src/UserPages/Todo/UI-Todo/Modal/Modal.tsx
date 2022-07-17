@@ -1,8 +1,9 @@
 
 import React from 'react'
-import './Modal.css'
+import './ModalModule.css'
 
 export default class Modal extends React.Component {
+
     state = {
         isOpen: false
     }

@@ -60,13 +60,31 @@ Paint на websockets                                         - Класс
     
 
 # API
+
+Interview:
 http://localhost:3000/Api/v1/InteriwesCards
+http://localhost:3000/Api/v1/InteriwesCards/?id={id}
+
+
+Users:
+http://localhost:3000/Api/v1/users
+http://localhost:3000/Api/v1/users/?id={id}
+
+Books:
 http://localhost:3000/Api/v1/books
+http://localhost:3000/Api/v1/books/cat
+http://localhost:3000/Api/v1/books/cat?id={id}
 
+
+Progress:
 http://localhost:3000/Api/v1/progress  
-
 http://localhost:3000/Api/v1/users/progress/?userid={id}&cat={react}&name={react-inteview-junior}#part2
 
+
+Posts:
+http://localhost:3000/Api/v1/posts
+http://localhost:3000/Api/v1/posts/cat
+http://localhost:3000/Api/v1/posts/cat?id={id}
 
 
 
@@ -74,9 +92,21 @@ http://localhost:3000/Api/v1/users/progress/?userid={id}&cat={react}&name={react
 
 
 # Componnents
-  mainPage
+
+  mainPage        folder     - and its Componnents
+
+  interviewServis folder     - and its Componnents
+
+  Blog            folder     - and its Componnents
+
+  about us        folder     - and its Componnents
+
+  shop            folder     - and its Componnents
+
+  My Office       folder     - and its Componnents
 
 
 
+# classes
 
 
