@@ -1,11 +1,30 @@
 import React from "react";
+import LoaderCss from "./Loader.module.css"
+const Loader =({isPostLoading})=> {
 
+    const rootClasses = []
+    
+     if(isPostLoading){
+        rootClasses.push(LoaderCss.ring);
+     }else{
+        rootClasses.length = 0
+     }
 
-export default  function Loader() {
-    return (
-        <div style={{display:'flex',justifyContent:'center',margin:'.5rem'}}>
-            <div className="lds-dual-ring"/>
+   
+
+    return(
+      
+       
+        <div className = {rootClasses.join(' ')}>Loading
+        <span> </span>
         </div>
+       
+          
+       
     )
-}
 
+
+};
+
+
+export default Loader
