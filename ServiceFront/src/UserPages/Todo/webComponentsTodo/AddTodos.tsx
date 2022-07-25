@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import PropTypes, { string } from 'prop-types'
+
 
 
 function useInputValue(defaultValue=''){
@@ -8,10 +8,12 @@ function useInputValue(defaultValue=''){
 
     return{
         bind:{
-            value:string,
-            onChange: (event: { target: { value: React.SetStateAction<string>; }; }) => setValue(event.target.value)
+            value,
+            onChange: (event: { target: { value: React.SetStateAction<string> } }) => setValue(event.target.value)
         },
+
         clear:()=>setValue(''),
+
         value:()=>value
     }
 }
@@ -23,7 +25,7 @@ function useInputValue(defaultValue=''){
 
 function AddTodo({onCreate}:{onCreate:any}){
 
-    const input=useInputValue('')
+    const input = useInputValue('')
 
     function submitHandler(event:any){
       event.preventDefault()
@@ -49,7 +51,3 @@ function AddTodo({onCreate}:{onCreate:any}){
 export  default AddTodo
 
 
-AddTodo.propTypes ={
-    onCreate: PropTypes.func.isRequired
-
-}

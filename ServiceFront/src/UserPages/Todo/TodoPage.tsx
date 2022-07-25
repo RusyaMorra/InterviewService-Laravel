@@ -1,14 +1,16 @@
 //imports
-import React,{useEffect} from "react";
+import React,{FC, useEffect} from "react";
 import Context from "../../Context/context";
 import Todolist from "./webComponentsTodo/Todolist";
 import Loader from "../../UI/Loader/Loader";
 import Modal from "./UI-Todo/Modal/Modal";
 
+
 /*
 *Линивая подгрузка компонентов
 */
-const AddTodo: React.LazyExoticComponent<React.ComponentType<any>> = React.lazy(() => new Promise(resolve => {
+
+const AddTodo: React.LazyExoticComponent<React.ComponentType<any>> = React.lazy(() =>  new Promise(resolve => {
     setTimeout(()=>{
       resolve(import('./webComponentsTodo/AddTodos'))
     },3000)
@@ -17,22 +19,14 @@ const AddTodo: React.LazyExoticComponent<React.ComponentType<any>> = React.lazy(
 
 
 
-// Инлайновые стили
-const  styles={
-    div:{
-        margin: 'auto',
-        width: 1170+'px',
-        height: 100 + '%',
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        flexDirection:'column'
 
 
-    }
+interface ToDoInterface {
+    title: string;
+    id: number;
+    completed: boolean;
 
 }
-
 
 
 
@@ -40,9 +34,9 @@ const  styles={
 *Страница TodoPage
 */
 
-function TodoPage() {
+const TodoPage: FC =() =>{
 
-    const [todos,setTodos] = React.useState([])
+    const [todos,setTodos] = React.useState<ToDoInterface[]>([])
     const [loading,setLoading] = React.useState(true)
 
     useEffect(()=>{
@@ -58,8 +52,11 @@ function TodoPage() {
     },[])
 
 
-    function toggleTodo(id:any){
-        setTodos(todos.map(todo=>{
+
+
+
+    function toggleTodo(id:number){
+        setTodos(todos.map((todo):ToDoInterface=>{
                 if(todo.id === id){
                     todo.completed = !todo.completed
                 }
@@ -69,27 +66,22 @@ function TodoPage() {
     }
 
 
-    function removeTodo(id:any){
-       setTodos(todos.filter(todo=> todo.id !== id))
+    function removeTodo(id:number){
+       setTodos(todos.filter((todo:any)=> todo.id !== id))
 
     }
 
 
-    function addTodo(title: any){
-        setTodos(
-            todos.concat([
-                {
-                    title: any,
-                    id: number Date.now(),
-                    completed: boolean  false,
-                }
-            ])
-        )
+
+    function addTodo(title:string){
+        const TodoGenerate: ToDoInterface[] =  [{ title, id:  Date.now(), completed: false}];
+        setTodos(todos.concat(TodoGenerate));
 
     }
 
   return <Context.Provider value={{removeTodo}}>
-            <div style={styles.div} className='wrapper'>
+            <div  className='wrapper'>
+
                 <h1>ToDoo</h1>
                 <Modal/>
                 <React.Suspense fallback={<p>Loading...</p>} >

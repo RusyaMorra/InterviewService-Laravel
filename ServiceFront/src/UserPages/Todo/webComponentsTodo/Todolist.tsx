@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from 'prop-types'
 import TodoItem from "./Todoitem";
 
 
@@ -30,10 +28,6 @@ const styles ={
    )
 
 
-}
-Todolist.propTypes ={
-    todos: PropTypes.arrayOf(PropTypes.object).isRequired,
-    onToggle:PropTypes.func.isRequired
 }
 
 export default Todolist
