@@ -22,9 +22,20 @@ const styles = {
     }
 }
 
+
+
+interface BlogTitleInterface {
+    id: number;
+    title: string;
+    body: string;
+}
+
+
+
+
 function PageBlog() {
 
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState<BlogTitleInterface[]>([])
     const [filter, setFilter] = useState({sort: '',query: ''});
     const [modal, setModal] = useState(false);
 

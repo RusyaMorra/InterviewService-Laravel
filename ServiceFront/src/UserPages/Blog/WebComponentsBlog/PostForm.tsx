@@ -1,8 +1,14 @@
-import React,{ useState } from "react";
+import React,{ FC, useState } from "react";
 import MyButton from "../../../UI/MyButton/MyButton"
 import MyInput from "../../../UI/MyInput/MyInput"
 
-const PostForm =({create})=> {
+type callbackCreatePost{
+    createPost: (newPost: any) => void
+}
+
+
+
+const PostForm: FC = ({create})=> {
 
     const [post, setPost] = useState({title: '',body: ''})
 

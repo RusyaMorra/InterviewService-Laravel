@@ -2,7 +2,7 @@
 import React,{FC, useEffect} from "react";
 import Context from "../../Context/context";
 import Todolist from "./webComponentsTodo/Todolist";
-import Loader from "../../UI/Loader/Loader";
+import Loader from "../../UI/Loadertodo/Loader";
 import Modal from "./UI-Todo/Modal/Modal";
 
 
