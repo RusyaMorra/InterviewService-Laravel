@@ -19,6 +19,11 @@ const styles = {
        width: '200px',
        heigth: '200px',
        backgroundColor: 'blue'
+    },
+    div2:{
+        width: '200px',
+        heigth: '200px',
+        backgroundColor: 'red'
     }
 }
 
@@ -29,22 +34,25 @@ interface BlogTitleInterface {
     title: string;
     body: string;
 }
-
+interface FilterInterface {
+    sort: string;
+    query: string;
+}
 
 
 
 function PageBlog() {
 
     const [posts, setPosts] = useState<BlogTitleInterface[]>([])
-    const [filter, setFilter] = useState({sort: '',query: ''});
-    const [modal, setModal] = useState(false);
+    const [filter, setFilter] = useState<FilterInterface>({sort: '',query: ''});
+    const [modal, setModal] = useState<boolean>(false);
 
-    const [totalPages, setTotalPages] = useState(0);
-    const [limit, setLimit] = useState(10);
-    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState<number>(0);
+    const [limit, setLimit] = useState<number>(10);
+    const [page, setPage] = useState<number>(1);
 
-    const sortedAndSearchedPost = usePosts(posts, filter.sort, filter.query);
-    let totalPageArray = usePagination(totalPages);
+    const sortedAndSearchedPost: any = usePosts(posts, filter.sort, filter.query);
+    let totalPageArray: number[] = usePagination(totalPages);
 
     const [fetchPosts, isPostsLoading, postError, setIsLoading] = useFetching(async () => {
         const response = await PostService.getAll(limit, page);
@@ -73,18 +81,18 @@ function PageBlog() {
 
 
 
-    const createPost = (newPost)=> {
+    const createPost = (newPost:BlogTitleInterface)=> {
         setPosts([ newPost,...posts])
         setModal(false)
     }
 
-    const DeletePost = (PostID)=> {
+    const DeletePost = (PostID:any)=> {
         setPosts( posts.filter(post =>   post.id !== PostID.id))
 
     }
 
 
-    const changePosts = (page)=> {
+    const changePosts = (page:number)=> {
         setPage(page)
     }
 
@@ -95,7 +103,7 @@ function PageBlog() {
  return <div>
             <Loader isPostLoading= {isPostsLoading}  />
             <div style = {styles.div}>тренинг</div>
-            <div style = {{width: '200px',heigth: '200px', backgroundColor: 'red'  }}>тренинг</div>
+            <div style = {styles.div2}>тренинг</div>
             <div className = "aa">тренинг</div>
 
             <ClassCounter />

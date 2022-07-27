@@ -2,17 +2,25 @@ import React,{ FC, useState } from "react";
 import MyButton from "../../../UI/MyButton/MyButton"
 import MyInput from "../../../UI/MyInput/MyInput"
 
-type callbackCreatePost{
-    createPost: (newPost: any) => void
+
+interface BlogTitleInterface {
+    id?: number;
+    title: string;
+    body: string;
+}
+
+
+interface callbackCreatePost{
+    create: (newPost: BlogTitleInterface) => void;
 }
 
 
 
-const PostForm: FC = ({create})=> {
+const PostForm: FC<callbackCreatePost> = ({create})=> {
 
-    const [post, setPost] = useState({title: '',body: ''})
+    const [post, setPost] = useState<BlogTitleInterface>({title: '',body: ''})
 
-    function addpost(e) {
+    function addpost(e:React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault()
         const newPost = {...post, id: Date.now()}
 
@@ -34,9 +42,9 @@ const PostForm: FC = ({create})=> {
                    <MyInput ref = {bodyInputRef}   title = {"добавить заголовок"} />
                    <MyInput ref = {bodyInputRef2}   title = {"добавить описание"} />
                    < input type = "text"  ref = {bodyInputRef} /> */}
-               <MyInput value = {post.title} onChange = {e => setPost({...post, title : e.target.value})}  title = {"добавить заголовок"} />
-               <MyInput value = {post.body}  onChange = {e => setPost({...post, body : e.target.value})} title = {"добавить описание"} />
-               <MyButton onClick = {addpost}   >добавить</MyButton>
+               <MyInput value = {post.title} onChange = {(e:React.ChangeEvent<HTMLInputElement>|any) => setPost({...post, title : e.target.value})}  title = {"добавить заголовок"} />
+               <MyInput value = {post.body}  onChange = {(e:React.ChangeEvent<HTMLInputElement>|any) => setPost({...post, body : e.target.value})} title = {"добавить описание"} />
+               <MyButton onClick = {addpost} >добавить</MyButton>
            </form>
 
         </div>
