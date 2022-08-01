@@ -13,6 +13,8 @@ import PostService from "../../API/PostService";
 import {usePagination} from "../../hooks/usePagination";
 import {useFetching} from "../../hooks/useFetching";
 import {getPageCount} from "../../utils/pages";
+import {BlogPostsInterface,FilterInterface } from "../../@TS-TYPES/interfaces";
+import {defaultType} from "../../@TS-TYPES/types";
 
 const styles = {
     div:{
@@ -29,21 +31,13 @@ const styles = {
 
 
 
-interface BlogTitleInterface {
-    id: number;
-    title: string;
-    body: string;
-}
-interface FilterInterface {
-    sort: string;
-    query: string;
-}
+
 
 
 
 function PageBlog() {
 
-    const [posts, setPosts] = useState<BlogTitleInterface[]>([])
+    const [posts, setPosts] = useState<BlogPostsInterface[]>([])
     const [filter, setFilter] = useState<FilterInterface>({sort: '',query: ''});
     const [modal, setModal] = useState<boolean>(false);
 
@@ -81,7 +75,7 @@ function PageBlog() {
 
 
 
-    const createPost = (newPost:BlogTitleInterface)=> {
+    const createPost = (newPost:BlogPostsInterface )=> {
         setPosts([ newPost,...posts])
         setModal(false)
     }
@@ -108,7 +102,7 @@ function PageBlog() {
 
             <ClassCounter />
 
-            <MyButton style={{marginTop: 30}} onClick={() => setModal(true)}>
+            <MyButton style={{marginTop: 30,cursor:"pointer"}} onClick={() => setModal(true)}>
                 Создать пользователя
             </MyButton>
 

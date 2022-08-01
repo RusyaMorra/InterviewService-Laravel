@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-export  const usePagination =  (totalPages) =>{
+export  const usePagination =  (totalPages:number) =>{
 
     const getPagesArray  = useMemo(()=>{
 
@@ -9,9 +9,9 @@ export  const usePagination =  (totalPages) =>{
             result.push(i + 1)
         }
         return result;
-       
-     
+
+
     },[totalPages]) ;
 
-    return getPagesArray; 
+    return getPagesArray;
 }

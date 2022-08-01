@@ -1,7 +1,7 @@
 import React from 'react';
 import cl from './MyModal.module.css';
 
-const MyModal = ({children, visible, setVisible}) => {
+const MyModal = ({children, visible, setVisible}:{children:any, visible:any, setVisible:any}) => {
 
     const rootClasses = [cl.myModal]
 

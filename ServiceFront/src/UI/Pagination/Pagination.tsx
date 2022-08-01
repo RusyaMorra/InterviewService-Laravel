@@ -1,17 +1,17 @@
 
 
-const Pagination = function ({totalPageArray, changePosts, page}) {
+const Pagination = function ({totalPageArray, changePosts, page}:{totalPageArray:any, changePosts:any, page:any}) {
 
-  
+
 
     return(
-      
+
         <div className = "pagination">
-            {totalPageArray.map(pageCount=> 
-                <button 
+            {totalPageArray.map((pageCount:any)=>
+                <button
                 onClick = {()=>changePosts(pageCount)}
                 className = {page === pageCount?'page__current pagePugination': 'pagePugination'}
-                Mykey = {pageCount}>{pageCount}
+                key = {pageCount}>{pageCount}
                 </button>
             ) }
         </div>

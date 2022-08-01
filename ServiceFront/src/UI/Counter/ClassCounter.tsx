@@ -1,15 +1,16 @@
+import { object } from "prop-types";
 import React from "react";
 
 
- class ClassCounter extends React.Component{
-    constructor(props){
+class ClassCounter extends React.Component<{}, {count:number}, any>{
+    constructor(props:any){
         super(props)
 
         this.state = {count: 0}
 
         this.increment = this.increment.bind(this);
         this.dicrement = this.dicrement.bind(this);
-        
+
 
     }
 
@@ -20,7 +21,7 @@ import React from "react";
 
     dicrement(){
         this.setState({count:this.state.count-5})
-        
+
     }
 
 

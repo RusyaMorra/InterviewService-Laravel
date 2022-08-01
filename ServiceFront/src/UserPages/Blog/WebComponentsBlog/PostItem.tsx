@@ -2,15 +2,15 @@ import React from "react";
 import {useNavigate } from 'react-router-dom';
 import MyButton from "../../../UI/MyButton/MyButton"
 
-const PostItem = function ({Mykey,...props}) {
+const PostItem = function ({Mykey,...props}:{Mykey: number, post:any,DeletePost:any}) {
 
     const router = useNavigate();
-    console.log(router);
+
 
 
     return(
 
-        <article {...Mykey}  className = "aa1">
+        <article key = {Mykey}  className = "aa1">
             <div   className = "postwrapper" >
                 <h1>{props.post.id}.{props.post.title}</h1>
                  <p>{props.post.body}</p>

@@ -3,20 +3,23 @@ import {useParams} from 'react-router-dom';
 import {useFetching} from "../../hooks/useFetching";
 import PostService from "../../API/PostService";
 import Loader from "../../UI/Loader/Loader";
+import {PostInterface,CommentsInterface} from "../../@TS-TYPES/interfaces";
+
+
 
 
 const PostIdPage = () => {
-    const params = useParams()
-    const [post, setPost] = useState({});
-    const [comments, setComments] = useState([]);
+    const params = useParams<string>()
+    const [post, setPost] = useState<PostInterface>({});
+    const [comments, setComments] = useState<CommentsInterface[]>([]);
 
-    const [fetchPostById, isPostsLoading , error, setIsLoading] = useFetching(async (id) => {
+    const [fetchPostById, isPostsLoading , error, setIsLoading] = useFetching(async (id:number|any) => {
         const response = await PostService.getById(id)
         setPost(response.data);
     })
 
 
-    const [fetchComments, isComLoading, comError] = useFetching(async (id) => {
+    const [fetchComments, isComLoading, comError] = useFetching(async (id:number|any) => {
         const response = await PostService.getCommentsByPostId(id)
         setComments(response.data);
     })

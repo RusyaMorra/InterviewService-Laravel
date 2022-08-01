@@ -3,10 +3,12 @@ import About from "../UserPages/AboutUs/About"
 import Errors from "../UserPages/Errors/Errors"
 import PostIdPage from "../UserPages/Blog/PostIdPage"
 import Login from "../UserPages/Auth/Login"
+import TodoPage from "../UserPages/Todo/TodoPage"
 
 export const privateRoutes = [
     {path: '/about', component: About, exact: true},
     {path: '/posts', component: PageBlog, exact: true},
+    {path: '/mytodo', component: TodoPage, exact: true},
     {path: '/posts/:id', component: PostIdPage, exact: true},
     {path: '/errors', component: Errors, exact: true},
 ]

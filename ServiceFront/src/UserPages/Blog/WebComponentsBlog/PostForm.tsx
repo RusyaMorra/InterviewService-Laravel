@@ -1,24 +1,15 @@
 import React,{ FC, useState } from "react";
 import MyButton from "../../../UI/MyButton/MyButton"
 import MyInput from "../../../UI/MyInput/MyInput"
+import {BlogPostsInterface,callbackCreatePost} from "../../../@TS-TYPES/interfaces";
 
 
-interface BlogTitleInterface {
-    id?: number;
-    title: string;
-    body: string;
-}
-
-
-interface callbackCreatePost{
-    create: (newPost: BlogTitleInterface) => void;
-}
 
 
 
 const PostForm: FC<callbackCreatePost> = ({create})=> {
 
-    const [post, setPost] = useState<BlogTitleInterface>({title: '',body: ''})
+    const [post, setPost] = useState< BlogPostsInterface >({title: '',body: ''})
 
     function addpost(e:React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault()

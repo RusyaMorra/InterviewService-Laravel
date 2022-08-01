@@ -1,24 +1,24 @@
 import React from "react";
 import MyInput from "../../../UI/MyInput/MyInput"
 import MySelect  from "../../../UI/MySelect/MySelect"
-const PostFilter=({filter, setFilter})=> {
 
 
 
+const PostFilter=({filter, setFilter}:{filter:any, setFilter:any})=> {
 
 
 
-    return(
+     return(
 
         <div>
             <MyInput
             value = {filter.query}
-            onChange = {e => setFilter({...filter, query: e.target.value})}
+            onChange = {(e:React.ChangeEvent<HTMLInputElement>|any) => setFilter({...filter, query: e.target.value})}
             title = {"Поиск"}
             />
             <MySelect
             value = {filter.sort}
-            onChange = {selectedSort =>setFilter({...filter, sort: selectedSort}) }
+            onChange = {(selectedSort:any) =>setFilter({...filter, sort: selectedSort}) }
             defaultValue = {'Сортировка по'}
             options = {[
                 {value: 'title', name: 'по названию'},
