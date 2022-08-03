@@ -1,23 +1,17 @@
 import React from "react"
 import MybuttonCss from "./Mybutton.module.css"
-
-
-interface MyButtonInterface {
-    children?: React.ReactChild| React.ReactNode;
-    onClick?: (e: any) => void;
-    style?: any;
-
-}
+import {MyButtonInterface} from "../../@TS-TYPES/ComponentInterfaces";
 
 
 
-const MyButton = function ({children,...props}:MyButtonInterface) {
+
+const MyButton = function ({children,classList,...props }:MyButtonInterface) {
 
 
 
     return(
         <div>
-            <button className={ MybuttonCss.mybtn} type = "submit"  {...props} >
+            <button className={!classList? MybuttonCss.mybtn:classList} type = "submit"  {...props} >
                  {children}
              </button>
         </div>

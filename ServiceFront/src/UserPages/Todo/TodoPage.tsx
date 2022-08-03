@@ -4,7 +4,7 @@ import Context from "../../Context/context";
 import Todolist from "./webComponentsTodo/Todolist";
 import Loader from "../../UI/Loadertodo/Loader";
 import Modal from "./UI-Todo/Modal/Modal";
-
+import {ToDoInterface} from "../../@TS-TYPES/ComponentInterfaces";
 
 /*
 *Линивая подгрузка компонентов
@@ -15,18 +15,6 @@ const AddTodo: React.LazyExoticComponent<React.ComponentType<any>> = React.lazy(
       resolve(import('./webComponentsTodo/AddTodos'))
     },3000)
 }))
-
-
-
-
-
-
-interface ToDoInterface {
-    title: string;
-    id: number;
-    completed: boolean;
-
-}
 
 
 
@@ -47,7 +35,6 @@ const TodoPage: FC =() =>{
                     setTodos(todos)
                     setLoading(false)
                     }, 2000)
-
             })
     },[])
 
@@ -81,7 +68,6 @@ const TodoPage: FC =() =>{
 
   return <Context.Provider value={{removeTodo}}>
             <div  className='wrapper'>
-
                 <h1>ToDoo</h1>
                 <Modal/>
                 <React.Suspense fallback={<p>Loading...</p>} >
@@ -90,8 +76,6 @@ const TodoPage: FC =() =>{
 
                 {loading && <Loader/>}
                 {todos.length?(<Todolist todos={todos} onToggle={toggleTodo}/>):loading?null:(<p>No todos</p>)}
-
-
             </div>
         </Context.Provider>
 }

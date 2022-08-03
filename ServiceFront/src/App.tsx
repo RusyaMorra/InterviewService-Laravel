@@ -23,7 +23,7 @@ function App() {
             isLoading
 
         }}>
-            <div>
+            <div className = 'app'>
                 <Navbar/>
                 <AppRouter/>
             </div>
