@@ -5,19 +5,20 @@
 Страницы пользователя: 
 
 главная  
-Сервис Cобеседований    -интервью    
-Блог                    -Комментирование     
-O нас    
-Mагазин                 -покупка     
+Сервис Cобеседований       
+Блог                       
+O сайте
+    -отзывы                     
+Mагазин   
+онлайн чат                
 Контакты    
 Мой кабинет
-    -Todo
     -Настройки профиля
     -Баланс 
+    -Todo
     -мой прогресс
     -уведомления
     -Сообщения
-    -онлайн чат
     -книги
     -Видое уроки
     -Рисования диаграм
@@ -70,6 +71,7 @@ Users:
 http://localhost:3000/Api/v1/users
 http://localhost:3000/Api/v1/users/?id={id}
 
+
 Books:
 http://localhost:3000/Api/v1/books
 http://localhost:3000/Api/v1/books/cat
@@ -93,17 +95,17 @@ http://localhost:3000/Api/v1/posts/cat?id={id}
 
 # Componnents
 
-  mainPage        folder     - and its Componnents
+  mainPage         folder     - and its Componnents
 
-  interviewServis folder     - and its Componnents
+  interviewServise folder     - and its Componnents
 
-  Blog            folder     - and its Componnents
+  Blog             folder     - and its Componnents
 
-  about us        folder     - and its Componnents
+  about us         folder     - and its Componnents
 
-  shop            folder     - and its Componnents
+  shop             folder     - and its Componnents
 
-  My Office       folder     - and its Componnents
+  My Office        folder     - and its Componnents
 
 
 
