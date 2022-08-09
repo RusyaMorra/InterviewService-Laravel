@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+
 /*
 |--------------------------------------------------------------------------
 | Check If Application Is Under Maintenance
@@ -52,4 +53,5 @@ $response = tap($kernel->handle(
     $request = Request::capture()
 ))->send();
 
-$kernel->terminate($request, $response);
+echo $kernel->terminate($request, $response);
+

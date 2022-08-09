@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\Todo\TodoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/api/v1/todos',  function (Request $request)
+{
+    response('123', 200);
+} );
