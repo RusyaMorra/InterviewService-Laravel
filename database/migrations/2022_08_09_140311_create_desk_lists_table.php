@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTodosTable extends Migration
+class CreateDeskListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateTodosTable extends Migration
      */
     public function up()
     {
-        Schema::create('todos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->foreignId('userId');
-            $table->string('title');
-            $table->boolean('completed');
+        Schema::create('desk_lists', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->foreignId('desk_id')->constrained();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateTodosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todos');
+        Schema::dropIfExists('desk_lists');
     }
 }
